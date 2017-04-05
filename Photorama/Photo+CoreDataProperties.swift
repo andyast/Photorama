@@ -18,9 +18,29 @@ extension Photo {
 
     @NSManaged public var dateTaken: NSDate?
     @NSManaged public var height: Int64
-    @NSManaged public var photoId: String?
+    @NSManaged public var photoID: String?
     @NSManaged public var remoteURL: NSURL?
     @NSManaged public var title: String?
     @NSManaged public var width: Int64
+    @NSManaged public var feedType: Int32
+    @NSManaged public var dateUploaded: NSDate?
+    @NSManaged public var tags: NSSet?
+
+}
+
+// MARK: Generated accessors for tags
+extension Photo {
+
+    @objc(addTagsObject:)
+    @NSManaged public func addToTags(_ value: Tag)
+
+    @objc(removeTagsObject:)
+    @NSManaged public func removeFromTags(_ value: Tag)
+
+    @objc(addTags:)
+    @NSManaged public func addToTags(_ values: NSSet)
+
+    @objc(removeTags:)
+    @NSManaged public func removeFromTags(_ values: NSSet)
 
 }

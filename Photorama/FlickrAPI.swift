@@ -7,7 +7,16 @@
 //
 
 import Foundation
+import CoreData
 
+
+enum CreatePhotoErrorType: Error {
+    case invalidJSONData, photoAlreadyExists
+}
+
+enum FeedType: Int32 {
+    case interesting, recent
+}
 
 enum Method: String {
     case interestingPhotos = "flickr.interestingness.getList"
@@ -28,7 +37,7 @@ struct FlickrAPI {
         return formatter
     }()
 
-    private static func photo(fromJSON json: [String: Any]) -> Photo? {
+    private static func photo(fromFeed feed: FeedType, fromJSON json: [String: Any], into context: NSManagedObjectContext) throws -> Photo {
         guard
             let photoID = json["id"] as? String,
             let title = json["title"] as? String,
@@ -38,13 +47,41 @@ struct FlickrAPI {
             let widthString = json["width_h"] as? String,
             let height = json["height_h"] as? Int,
             let width = Int(widthString),
-            let dateTaken = dateFormatter.date(from: dateString) else {
+            let dateTaken = dateFormatter.date(from: dateString),
+            let dateUploadString = json["dateupload"] as? String,
+            let epochDate = Int(dateUploadString) else {
                 // Don't have enough information to construct a Photo
-                return nil }
-        return nil // Photo(title: title, photoID: photoID, remoteURL: url, dateTaken: dateTaken, width: width, height: height)
+                throw CreatePhotoErrorType.invalidJSONData
+        }
+
+        let fetchRequest: NSFetchRequest<Photo> = Photo.fetchRequest()
+        let predicate = NSPredicate(format: "\(#keyPath(Photo.photoID)) == \(photoID)")
+        fetchRequest.predicate = predicate
+        var fetchedPhotos: [Photo]?
+        context.performAndWait {
+            fetchedPhotos = try? fetchRequest.execute()
+        }
+        if let _ = fetchedPhotos?.first {
+            throw CreatePhotoErrorType.photoAlreadyExists
+        }
+
+
+        var photo: Photo!
+        context.performAndWait {
+            photo = Photo(context: context)
+            photo.title = title
+            photo.photoID = photoID
+            photo.remoteURL = url as NSURL
+            photo.dateTaken = dateTaken as NSDate
+            photo.height = Int64(height)
+            photo.width = Int64(width)
+            photo.feedType = feed.rawValue
+            photo.dateUploaded = Date(timeIntervalSince1970: TimeInterval(epochDate)) as NSDate
+        }
+        return photo
     }
 
-    static func photos(fromJSON data: Data) -> PhotosResult {
+    static func photos(fromFeed feed: FeedType, fromJSON data: Data, into context: NSManagedObjectContext) -> PhotosResult {
         do {
             let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
 
@@ -58,14 +95,17 @@ struct FlickrAPI {
 
             var finalPhotos = [Photo]()
             for photoJSON in photosArray {
-                if let photo = photo(fromJSON: photoJSON) {
+                do {
+                    let photo = try self.photo(fromFeed: feed, fromJSON: photoJSON, into: context)
                     finalPhotos.append(photo)
+
+                } catch CreatePhotoErrorType.invalidJSONData {
+                    //return .failure(FlickrError.invalidJSONData)
+
+                } catch CreatePhotoErrorType.photoAlreadyExists {
+                    //Swallow this error as it basically means we don't need to do anything
                 }
-            }
-            if finalPhotos.isEmpty && !photosArray.isEmpty {
-                // We weren't able to parse any of the photos
-                // Maybe the JSON format for photos has changed
-                return .failure(FlickrError.invalidJSONData)
+
             }
 
             return .success(finalPhotos)
@@ -84,6 +124,7 @@ struct FlickrAPI {
             "method": method.rawValue,
             "format": "json",
             "nojsoncallback": "1",
+            "safe_search": "1",
             "api_key": apiKey
         ]
         for (key, value) in baseParams {
@@ -103,15 +144,13 @@ struct FlickrAPI {
 
     static var interestingPhotosURL: URL {
         return flickrURL(method: .interestingPhotos,
-                         parameters: ["extras": "url_h,date_taken",
-                             "safe_search": "2"])
+                         parameters: ["extras": "url_h,date_taken,date_upload"])
 
     }
 
     static var recentPhotosURL: URL {
         return flickrURL(method: .recentPhotos,
-                         parameters: ["extras": "url_h,date_taken",
-                             "safe_search": "2"])
+                         parameters: ["extras": "url_h,date_taken,date_upload"])
 
     }
 

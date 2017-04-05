@@ -10,12 +10,140 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Photorama/FlickrAPI.swift"
-            timestampString = "513011093.647623"
+            timestampString = "513031118.057264"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "photo(fromJSON:)"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "photo(fromFeed:fromJSON:into:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Photorama/FlickrAPI.swift"
+            timestampString = "513031118.057264"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "photo(fromFeed:fromJSON:into:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Photorama/FlickrAPI.swift"
+            timestampString = "513031118.057264"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "photo(fromFeed:fromJSON:into:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Photorama/FlickrAPI.swift"
+            timestampString = "513031118.057264"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "photo(fromFeed:fromJSON:into:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Photorama.FlickrAPI.(photo in _D432471D84DDBFA4ACCCC107C7C61771) (fromFeed : Photorama.FeedType, fromJSON : Swift.Dictionary&lt;Swift.String, Any&gt;, into : __ObjC.NSManagedObjectContext) throws -&gt; Photorama.Photo"
+                  moduleName = "Photorama"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/andy/Dropbox/Projects/BNR/Photorama/Photorama/FlickrAPI.swift"
+                  timestampString = "513028390.685243"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "67"
+                  endingLineNumber = "67"
+                  offsetFromSymbolStart = "3808">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Photorama.FlickrAPI.((photo in _D432471D84DDBFA4ACCCC107C7C61771) (fromFeed : Photorama.FeedType, fromJSON : Swift.Dictionary&lt;Swift.String, Any&gt;, into : __ObjC.NSManagedObjectContext) throws -&gt; Photorama.Photo).(closure #2)"
+                  moduleName = "Photorama"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/andy/Dropbox/Projects/BNR/Photorama/Photorama/FlickrAPI.swift"
+                  timestampString = "513028390.687223"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "67"
+                  endingLineNumber = "67"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Photorama/FlickrAPI.swift"
+            timestampString = "513031118.057264"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
+            landmarkName = "photos(fromFeed:fromJSON:into:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Photorama/PhotoStore.swift"
+            timestampString = "513097911.42996"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "fetchRecentPhotos(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Photorama/FlickrAPI.swift"
+            timestampString = "513031118.057264"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "photos(fromFeed:fromJSON:into:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -9,9 +9,7 @@
 
 import UIKit
 
-enum FeedType {
-    case interesting, recent
-}
+
 
 class PhotosViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
@@ -23,18 +21,28 @@ class PhotosViewController: UIViewController {
     let photoDataSource = PhotoDataSource()
     var currentFeedType: FeedType = .interesting
 
+
+
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         store = PhotoStore()
+
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(PhotosViewController.refreshControlAction), for: .valueChanged)
+        collectionView.refreshControl = refreshControl
 
         collectionView.dataSource = photoDataSource
         collectionView.delegate = self
 
         loadFeedForType(feedType: .interesting)
 
-
     }
+
+    func refreshControlAction(sender: UIRefreshControl) {
+        loadFeedForType(feedType: currentFeedType) }
 
     @IBAction func stepperValueChanged(sender: UIStepper) {
         itemsPerRow = CGFloat(sender.value)
@@ -42,26 +50,23 @@ class PhotosViewController: UIViewController {
     }
 
     func loadFeedForType(feedType: FeedType) {
+        self.collectionView.refreshControl?.beginRefreshing()
         currentFeedType = feedType
+        self.updateDataSource()
 
-        let completion: (PhotosResult) -> Void = { photosResult in
-            switch photosResult {
-            case let .success(photos):
-                print("Successfully found \(photos.count) photos.")
-                self.photoDataSource.photos = photos
 
-            case let .failure(error):
-                print("Error fetching interesting photos: \(error)")
-                self.photoDataSource.photos.removeAll()
+        let fetchCompletion: (PhotosResult) -> Void = { photosResult in
+            if case let .success(photos) = photosResult, photos.count > 0 {
+                self.updateDataSource()
             }
-            self.collectionView.reloadSections(IndexSet(integer: 0))
+            self.collectionView.refreshControl?.endRefreshing()
         }
 
         switch feedType {
         case .interesting:
-            store.fetchInterestingPhotos(completion: completion)
+            store.fetchInterestingPhotos(completion: fetchCompletion)
         case .recent:
-            store.fetchRecentPhotos(completion: completion)
+            store.fetchRecentPhotos(completion: fetchCompletion)
         }
     }
 
@@ -84,6 +89,28 @@ class PhotosViewController: UIViewController {
             }
         default:
             preconditionFailure("Unexpected segue identifier.")
+        }
+    }
+
+
+    private func updateDataSource() {
+        store.fetchAllPhotos(fromFeed: currentFeedType) {
+            (photosResult) in
+            switch photosResult {
+            case let .success(photos):
+
+                let sortedPhotos = photos.sorted(by: { (a, b) in
+                    if let aDate = a.dateUploaded as Date?, let bDate = b.dateUploaded as Date? {
+                        return aDate > bDate
+                    }
+                    return false
+                })
+
+                self.photoDataSource.photos = sortedPhotos
+            case .failure:
+                self.photoDataSource.photos.removeAll()
+            }
+            self.collectionView.reloadSections(IndexSet(integer: 0))
         }
     }
 }
@@ -120,7 +147,7 @@ extension PhotosViewController: UICollectionViewDelegate {
             let photoIndexPath = IndexPath(item: photoIndex, section: 0)
             // When the request finishes, only update the cell if it's still visible
             if let cell = self.collectionView.cellForItem(at: photoIndexPath) as? PhotoCollectionViewCell {
-                cell.update(with: image)
+                cell.update(with: image, photo: photo)
             }
         }
     }

@@ -11,6 +11,7 @@ import UIKit
 class PhotoCollectionViewCell: UICollectionViewCell {
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var spinner: UIActivityIndicatorView!
+    @IBOutlet var label: UILabel!
 
 
     override func awakeFromNib() {
@@ -25,7 +26,7 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     }
 
 
-    func update(with image: UIImage?) {
+    func update(with image: UIImage?, photo: Photo? = nil) {
         if let imageToDisplay = image {
             spinner.stopAnimating()
             imageView.image = imageToDisplay
@@ -33,6 +34,13 @@ class PhotoCollectionViewCell: UICollectionViewCell {
             spinner.startAnimating()
             imageView.image = nil
         }
+        
+        label.text = nil
+        
+        if let uploaded = photo?.dateUploaded?.timeIntervalSince1970{
+            label.text = String(uploaded)
+        }
+        
     }
 
 }
