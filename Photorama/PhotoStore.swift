@@ -45,12 +45,34 @@ class PhotoStore {
         }
         return container
     }()
+    private func processPhotosRequest(fromFeed feed:FeedType, data: Data?, error: Error?, completion: @escaping (PhotosResult) -> Void) {
 
-    private func processPhotosRequest(fromFeed feed: FeedType, data: Data?, error: Error?) -> PhotosResult {
         guard let jsonData = data else {
-            return .failure(error!)
+            completion(.failure(error!))
+            return
         }
-        return FlickrAPI.photos(fromFeed: feed, fromJSON: jsonData, into: persistentContainer.viewContext)
+        //return FlickrAPI.photos(fromFeed: feed, fromJSON: jsonData, into: persistentContainer.viewContext)
+        persistentContainer.performBackgroundTask { (context) in
+            let result = FlickrAPI.photos(fromFeed: feed, fromJSON: jsonData, into: context)
+            do {
+                try context.save()
+            } catch {
+                print("Error saving to Core Data: \(error).")
+                completion(.failure(error))
+                return
+            }
+
+            switch result {
+            case let .success(photos):
+                let photoIDs = photos.map { return $0.objectID }
+                let viewContext = self.persistentContainer.viewContext
+                let viewContextPhotos =
+                    photoIDs.map { return viewContext.object(with: $0) } as! [Photo]
+                completion(.success(viewContextPhotos))
+            case .failure:
+                completion(result)
+            }
+        }
     }
 
     private func fetchPhotos(fromFeed feed: FeedType, completion: @escaping (PhotosResult) -> Void) {
@@ -62,18 +84,11 @@ class PhotoStore {
             if let httpResponse = response as? HTTPURLResponse {
                 self.printHttpResponseInfo(response: httpResponse)
             }
-            var result = self.processPhotosRequest(fromFeed: feed, data: data, error: error)
 
-            if case .success = result {
-                do {
-                    try self.persistentContainer.viewContext.save()
-                } catch let error {
-                    result = .failure(error)
+            self.processPhotosRequest(fromFeed: feed, data: data, error: error) { (result) in
+                OperationQueue.main.addOperation {
+                    completion(result)
                 }
-            }
-
-            DispatchQueue.main.async {
-                completion(result)
             }
         }
         task.resume()
