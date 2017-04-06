@@ -12,7 +12,7 @@ class ImageStore: NSObject {
     let cache = NSCache<AnyObject, AnyObject>()
     
     func imageURLForKey(key: String) -> URL {
-        let documentsDirectories = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentsDirectories = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)
         let documentDirectory = documentsDirectories.first!
         
         return documentDirectory.appendingPathComponent(key)

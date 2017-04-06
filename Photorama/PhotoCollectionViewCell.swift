@@ -37,9 +37,9 @@ class PhotoCollectionViewCell: UICollectionViewCell {
         
         label.text = nil
         
-        if let uploaded = photo?.dateUploaded?.timeIntervalSince1970{
-            label.text = String(uploaded)
-        }
+        //if let uploaded = photo?.dateUploaded?.timeIntervalSince1970{
+            label.text = photo?.title //String(uploaded)
+        //}
         
     }
 

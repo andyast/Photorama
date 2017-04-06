@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GG3-Jd-SiW">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="12029"/>
+    </dependencies>
+    <scenes>
+        <!--Feed List-->
+        <scene sceneID="d0v-3M-DmS">
+            <objects>
+                <controller title="Feed List" id="GG3-Jd-SiW" customClass="FeedListInterfaceController" customModule="PhotosWatch_Extension">
+                    <items>
+                        <group width="1" alignment="left" layout="vertical" id="gZE-qr-Edw">
+                            <items>
+                                <button width="1" alignment="left" title="Interesting" id="vHI-yC-naZ">
+                                    <color key="backgroundColor" red="0.0" green="0.52971073580000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <connections>
+                                        <action selector="showInterestingFeed" destination="GG3-Jd-SiW" id="xTx-1Q-zZx"/>
+                                    </connections>
+                                </button>
+                                <button width="1" alignment="left" title="Recent" id="xry-ef-SMa">
+                                    <color key="backgroundColor" red="1" green="0.1176470588" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <connections>
+                                        <action selector="showRecentFeed" destination="GG3-Jd-SiW" id="1p8-mv-biP"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-89" y="320"/>
+        </scene>
+        <!--ListInterfaceController-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller identifier="ListInterfaceController" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="PhotosWatch" customModuleProvider="target">
+                    <items>
+                        <table alignment="left" id="OA4-rw-Typ">
+                            <items>
+                                <tableRow identifier="mainRowType" id="kCc-b8-49d" customClass="MainRowType" customModule="PhotosWatch_Extension">
+                                    <group key="rootItem" width="1" alignment="left" id="8L8-yQ-TVU">
+                                        <items>
+                                            <label width="128" height="49" alignment="left" text="Label" textAlignment="center" id="H9n-2t-Wje"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="rowDescription" destination="H9n-2t-Wje" id="RsI-Ey-u3D"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="table" destination="OA4-rw-Typ" id="DgA-PA-ueH"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="173" y="322"/>
+        </scene>
+        <!--DetailInterfaceController-->
+        <scene sceneID="k2u-ex-KKw">
+            <objects>
+                <controller identifier="DetailInterfaceController" id="O3S-hY-JcH" customClass="DetailInterfaceController" customModule="PhotosWatch_Extension">
+                    <items>
+                        <imageView alignment="left" id="8zt-me-eiB"/>
+                    </items>
+                    <connections>
+                        <outlet property="image" destination="8zt-me-eiB" id="N4w-be-Tpf"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="491" y="322"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="220" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="PhotosWatch" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="643"/>
+        </scene>
+    </scenes>
+</document>
