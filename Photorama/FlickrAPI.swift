@@ -83,6 +83,8 @@ struct FlickrAPI {
 
     static func photos(fromFeed feed: FeedType, fromJSON data: Data, into context: NSManagedObjectContext) -> PhotosResult {
         do {
+
+
             let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
 
             guard
@@ -107,6 +109,26 @@ struct FlickrAPI {
                 }
 
             }
+
+
+
+            let documentsDirectories = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+            let documentDirectory = documentsDirectories.first!
+
+            let path = documentDirectory.appendingPathComponent("feed_\(feed).json")
+            do {
+                if let jsonStr = String(data: data, encoding: .utf8) {
+                    try jsonStr.write(to: path, atomically: true, encoding: .utf8)
+                    DispatchQueue.main.async() {
+                        let _ = WatchSessionManager.sharedManager.transferFile(file: path as NSURL, metadata: ["feed" : "\(feed)" as AnyObject])
+                    }
+                }
+
+            }
+            catch {
+                print("Error transfering file: \(error)")
+            }
+
 
             return .success(finalPhotos)
         } catch let error {
@@ -144,13 +166,13 @@ struct FlickrAPI {
 
     static var interestingPhotosURL: URL {
         return flickrURL(method: .interestingPhotos,
-                         parameters: ["extras": "url_h,date_taken,date_upload"])
+                         parameters: ["extras": "url_h,date_taken,date_upload, url_sq, url_t, url_s, url_q, url_m, url_n, url_z, url_c, url_l, url_o"])
 
     }
 
     static var recentPhotosURL: URL {
         return flickrURL(method: .recentPhotos,
-                         parameters: ["extras": "url_h,date_taken,date_upload"])
+                         parameters: ["extras": "url_h,date_taken,date_upload, url_sq, url_t, url_s, url_q, url_m, url_n, url_z, url_c, url_l, url_o"])
 
     }
 

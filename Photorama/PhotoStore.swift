@@ -45,13 +45,14 @@ class PhotoStore {
         }
         return container
     }()
+    
+    
     private func processPhotosRequest(fromFeed feed:FeedType, data: Data?, error: Error?, completion: @escaping (PhotosResult) -> Void) {
 
         guard let jsonData = data else {
             completion(.failure(error!))
             return
         }
-        //return FlickrAPI.photos(fromFeed: feed, fromJSON: jsonData, into: persistentContainer.viewContext)
         persistentContainer.performBackgroundTask { (context) in
             let result = FlickrAPI.photos(fromFeed: feed, fromJSON: jsonData, into: context)
             do {

@@ -20,8 +20,20 @@
 		A130D8411E8D4E36004EEF60 /* PhotoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A130D8401E8D4E36004EEF60 /* PhotoStore.swift */; };
 		A130D8631E8D748E004EEF60 /* PhotoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A130D8621E8D748E004EEF60 /* PhotoDataSource.swift */; };
 		A130D8651E8D761C004EEF60 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A130D8641E8D761C004EEF60 /* PhotoCollectionViewCell.swift */; };
+		A143943F1E9586A20006D683 /* WatchSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A143943E1E9586A20006D683 /* WatchSessionManager.swift */; };
+		A14394401E9589AE0006D683 /* WatchSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A143943E1E9586A20006D683 /* WatchSessionManager.swift */; };
+		A14394601E9687F00006D683 /* DetailInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A143945F1E9687F00006D683 /* DetailInterfaceController.swift */; };
+		A185DA2D1E96B00C00C44AEA /* FeedListInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A185DA2C1E96B00C00C44AEA /* FeedListInterfaceController.swift */; };
 		A1C9B23B1E95389000314B22 /* TagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C9B23A1E95389000314B22 /* TagsViewController.swift */; };
 		A1C9B23D1E9538D300314B22 /* TagDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C9B23C1E9538D300314B22 /* TagDataSource.swift */; };
+		A1C9B2701E9545DF00314B22 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1C9B26E1E9545DF00314B22 /* Interface.storyboard */; };
+		A1C9B2721E9545DF00314B22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1C9B2711E9545DF00314B22 /* Assets.xcassets */; };
+		A1C9B2791E9545DF00314B22 /* PhotosWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A1C9B2781E9545DF00314B22 /* PhotosWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A1C9B2801E9545DF00314B22 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C9B27F1E9545DF00314B22 /* InterfaceController.swift */; };
+		A1C9B2821E9545DF00314B22 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C9B2811E9545DF00314B22 /* ExtensionDelegate.swift */; };
+		A1C9B2841E9545DF00314B22 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C9B2831E9545DF00314B22 /* NotificationController.swift */; };
+		A1C9B2861E9545DF00314B22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1C9B2851E9545DF00314B22 /* Assets.xcassets */; };
+		A1C9B28B1E9545DF00314B22 /* PhotosWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = A1C9B26C1E9545DF00314B22 /* PhotosWatch.app */; };
 		A1CEBC251E93D2E000CD7E88 /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CEBC241E93D2E000CD7E88 /* ImageStore.swift */; };
 		A1CEBC271E93E2AE00CD7E88 /* PhotoInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CEBC261E93E2AE00CD7E88 /* PhotoInfoViewController.swift */; };
 		A1CEBC511E9418AF00CD7E88 /* Photorama.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A1CEBC4F1E9418AF00CD7E88 /* Photorama.xcdatamodeld */; };
@@ -42,7 +54,46 @@
 			remoteGlobalIDString = A103D4271E8D46D1007A6510;
 			remoteInfo = Photorama;
 		};
+		A1C9B27A1E9545DF00314B22 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A103D4201E8D46D1007A6510 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A1C9B2771E9545DF00314B22;
+			remoteInfo = "PhotosWatch Extension";
+		};
+		A1C9B2881E9545DF00314B22 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A103D4201E8D46D1007A6510 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A1C9B26B1E9545DF00314B22;
+			remoteInfo = PhotosWatch;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A1C9B28A1E9545DF00314B22 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				A1C9B28B1E9545DF00314B22 /* PhotosWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1C9B2911E9545DF00314B22 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A1C9B2791E9545DF00314B22 /* PhotosWatch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		A103D4281E8D46D1007A6510 /* Photorama.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photorama.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,8 +115,24 @@
 		A130D8401E8D4E36004EEF60 /* PhotoStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoStore.swift; sourceTree = "<group>"; };
 		A130D8621E8D748E004EEF60 /* PhotoDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDataSource.swift; sourceTree = "<group>"; };
 		A130D8641E8D761C004EEF60 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		A143943E1E9586A20006D683 /* WatchSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchSessionManager.swift; sourceTree = "<group>"; };
+		A143945F1E9687F00006D683 /* DetailInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailInterfaceController.swift; sourceTree = "<group>"; };
+		A185DA2A1E96A20E00C44AEA /* PhotosWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PhotosWatch.entitlements; sourceTree = "<group>"; };
+		A185DA2B1E96A21900C44AEA /* PhotosWatch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "PhotosWatch Extension.entitlements"; sourceTree = "<group>"; };
+		A185DA2C1E96B00C00C44AEA /* FeedListInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedListInterfaceController.swift; sourceTree = "<group>"; };
 		A1C9B23A1E95389000314B22 /* TagsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsViewController.swift; sourceTree = "<group>"; };
 		A1C9B23C1E9538D300314B22 /* TagDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagDataSource.swift; sourceTree = "<group>"; };
+		A1C9B26C1E9545DF00314B22 /* PhotosWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotosWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1C9B26F1E9545DF00314B22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		A1C9B2711E9545DF00314B22 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A1C9B2731E9545DF00314B22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1C9B2781E9545DF00314B22 /* PhotosWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "PhotosWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1C9B27E1E9545DF00314B22 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		A1C9B27F1E9545DF00314B22 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		A1C9B2811E9545DF00314B22 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		A1C9B2831E9545DF00314B22 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		A1C9B2851E9545DF00314B22 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A1C9B2871E9545DF00314B22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1CEBC241E93D2E000CD7E88 /* ImageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
 		A1CEBC261E93E2AE00CD7E88 /* PhotoInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoInfoViewController.swift; sourceTree = "<group>"; };
 		A1CEBC501E9418AF00CD7E88 /* Photorama.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Photorama.xcdatamodel; sourceTree = "<group>"; };
@@ -93,6 +160,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A1C9B2751E9545DF00314B22 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -104,6 +178,8 @@
 				A103D42A1E8D46D1007A6510 /* Photorama */,
 				A103D43F1E8D46D2007A6510 /* PhotoramaTests */,
 				A103D44A1E8D46D2007A6510 /* PhotoramaUITests */,
+				A1C9B26D1E9545DF00314B22 /* PhotosWatch */,
+				A1C9B27C1E9545DF00314B22 /* PhotosWatch Extension */,
 				A103D4291E8D46D1007A6510 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -114,6 +190,8 @@
 				A103D4281E8D46D1007A6510 /* Photorama.app */,
 				A103D43C1E8D46D2007A6510 /* PhotoramaTests.xctest */,
 				A103D4471E8D46D2007A6510 /* PhotoramaUITests.xctest */,
+				A1C9B26C1E9545DF00314B22 /* PhotosWatch.app */,
+				A1C9B2781E9545DF00314B22 /* PhotosWatch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -136,6 +214,7 @@
 				A1CEBC4F1E9418AF00CD7E88 /* Photorama.xcdatamodeld */,
 				A1C9B23A1E95389000314B22 /* TagsViewController.swift */,
 				A1C9B23C1E9538D300314B22 /* TagDataSource.swift */,
+				A143943E1E9586A20006D683 /* WatchSessionManager.swift */,
 			);
 			path = Photorama;
 			sourceTree = "<group>";
@@ -158,6 +237,41 @@
 			path = PhotoramaUITests;
 			sourceTree = "<group>";
 		};
+		A1C9B26D1E9545DF00314B22 /* PhotosWatch */ = {
+			isa = PBXGroup;
+			children = (
+				A185DA2A1E96A20E00C44AEA /* PhotosWatch.entitlements */,
+				A1C9B26E1E9545DF00314B22 /* Interface.storyboard */,
+				A1C9B2711E9545DF00314B22 /* Assets.xcassets */,
+				A1C9B2731E9545DF00314B22 /* Info.plist */,
+			);
+			path = PhotosWatch;
+			sourceTree = "<group>";
+		};
+		A1C9B27C1E9545DF00314B22 /* PhotosWatch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				A185DA2B1E96A21900C44AEA /* PhotosWatch Extension.entitlements */,
+				A1C9B27F1E9545DF00314B22 /* InterfaceController.swift */,
+				A1C9B2811E9545DF00314B22 /* ExtensionDelegate.swift */,
+				A1C9B2831E9545DF00314B22 /* NotificationController.swift */,
+				A1C9B2851E9545DF00314B22 /* Assets.xcassets */,
+				A1C9B2871E9545DF00314B22 /* Info.plist */,
+				A1C9B27D1E9545DF00314B22 /* Supporting Files */,
+				A143945F1E9687F00006D683 /* DetailInterfaceController.swift */,
+				A185DA2C1E96B00C00C44AEA /* FeedListInterfaceController.swift */,
+			);
+			path = "PhotosWatch Extension";
+			sourceTree = "<group>";
+		};
+		A1C9B27D1E9545DF00314B22 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A1C9B27E1E9545DF00314B22 /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -168,10 +282,12 @@
 				A103D4241E8D46D1007A6510 /* Sources */,
 				A103D4251E8D46D1007A6510 /* Frameworks */,
 				A103D4261E8D46D1007A6510 /* Resources */,
+				A1C9B28A1E9545DF00314B22 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A1C9B2891E9545DF00314B22 /* PBXTargetDependency */,
 			);
 			name = Photorama;
 			productName = Photorama;
@@ -214,6 +330,40 @@
 			productReference = A103D4471E8D46D2007A6510 /* PhotoramaUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		A1C9B26B1E9545DF00314B22 /* PhotosWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1C9B2921E9545DF00314B22 /* Build configuration list for PBXNativeTarget "PhotosWatch" */;
+			buildPhases = (
+				A1C9B26A1E9545DF00314B22 /* Resources */,
+				A1C9B2911E9545DF00314B22 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A1C9B27B1E9545DF00314B22 /* PBXTargetDependency */,
+			);
+			name = PhotosWatch;
+			productName = PhotosWatch;
+			productReference = A1C9B26C1E9545DF00314B22 /* PhotosWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		A1C9B2771E9545DF00314B22 /* PhotosWatch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1C9B2901E9545DF00314B22 /* Build configuration list for PBXNativeTarget "PhotosWatch Extension" */;
+			buildPhases = (
+				A1C9B2741E9545DF00314B22 /* Sources */,
+				A1C9B2751E9545DF00314B22 /* Frameworks */,
+				A1C9B2761E9545DF00314B22 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "PhotosWatch Extension";
+			productName = "PhotosWatch Extension";
+			productReference = A1C9B2781E9545DF00314B22 /* PhotosWatch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -241,6 +391,26 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = A103D4271E8D46D1007A6510;
 					};
+					A1C9B26B1E9545DF00314B22 = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = Z7GAZ56RUK;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					A1C9B2771E9545DF00314B22 = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = Z7GAZ56RUK;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
 				};
 			};
 			buildConfigurationList = A103D4231E8D46D1007A6510 /* Build configuration list for PBXProject "Photorama" */;
@@ -259,6 +429,8 @@
 				A103D4271E8D46D1007A6510 /* Photorama */,
 				A103D43B1E8D46D2007A6510 /* PhotoramaTests */,
 				A103D4461E8D46D2007A6510 /* PhotoramaUITests */,
+				A1C9B26B1E9545DF00314B22 /* PhotosWatch */,
+				A1C9B2771E9545DF00314B22 /* PhotosWatch Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -288,6 +460,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A1C9B26A1E9545DF00314B22 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1C9B2721E9545DF00314B22 /* Assets.xcassets in Resources */,
+				A1C9B2701E9545DF00314B22 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1C9B2761E9545DF00314B22 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1C9B2861E9545DF00314B22 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -301,6 +490,7 @@
 				A103D45A1E8D479F007A6510 /* PhotosViewController.swift in Sources */,
 				A130D8411E8D4E36004EEF60 /* PhotoStore.swift in Sources */,
 				A1CEBC251E93D2E000CD7E88 /* ImageStore.swift in Sources */,
+				A143943F1E9586A20006D683 /* WatchSessionManager.swift in Sources */,
 				A1C9B23B1E95389000314B22 /* TagsViewController.swift in Sources */,
 				A130D8631E8D748E004EEF60 /* PhotoDataSource.swift in Sources */,
 				A1CEBC511E9418AF00CD7E88 /* Photorama.xcdatamodeld in Sources */,
@@ -327,6 +517,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A1C9B2741E9545DF00314B22 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A14394401E9589AE0006D683 /* WatchSessionManager.swift in Sources */,
+				A1C9B2841E9545DF00314B22 /* NotificationController.swift in Sources */,
+				A1C9B2821E9545DF00314B22 /* ExtensionDelegate.swift in Sources */,
+				A185DA2D1E96B00C00C44AEA /* FeedListInterfaceController.swift in Sources */,
+				A1C9B2801E9545DF00314B22 /* InterfaceController.swift in Sources */,
+				A14394601E9687F00006D683 /* DetailInterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -339,6 +542,16 @@
 			isa = PBXTargetDependency;
 			target = A103D4271E8D46D1007A6510 /* Photorama */;
 			targetProxy = A103D4481E8D46D2007A6510 /* PBXContainerItemProxy */;
+		};
+		A1C9B27B1E9545DF00314B22 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A1C9B2771E9545DF00314B22 /* PhotosWatch Extension */;
+			targetProxy = A1C9B27A1E9545DF00314B22 /* PBXContainerItemProxy */;
+		};
+		A1C9B2891E9545DF00314B22 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A1C9B26B1E9545DF00314B22 /* PhotosWatch */;
+			targetProxy = A1C9B2881E9545DF00314B22 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -357,6 +570,14 @@
 				A103D4351E8D46D2007A6510 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		A1C9B26E1E9545DF00314B22 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A1C9B26F1E9545DF00314B22 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -541,6 +762,80 @@
 			};
 			name = Release;
 		};
+		A1C9B28C1E9545DF00314B22 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PhotosWatch/PhotosWatch.entitlements;
+				DEVELOPMENT_TEAM = Z7GAZ56RUK;
+				IBSC_MODULE = PhotosWatch_Extension;
+				INFOPLIST_FILE = PhotosWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DLS.Photorama.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Debug;
+		};
+		A1C9B28D1E9545DF00314B22 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PhotosWatch/PhotosWatch.entitlements;
+				DEVELOPMENT_TEAM = Z7GAZ56RUK;
+				IBSC_MODULE = PhotosWatch_Extension;
+				INFOPLIST_FILE = PhotosWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DLS.Photorama.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Release;
+		};
+		A1C9B28E1E9545DF00314B22 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "PhotosWatch Extension/PhotosWatch Extension.entitlements";
+				DEVELOPMENT_TEAM = Z7GAZ56RUK;
+				INFOPLIST_FILE = "PhotosWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.DLS.Photorama.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Debug;
+		};
+		A1C9B28F1E9545DF00314B22 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "PhotosWatch Extension/PhotosWatch Extension.entitlements";
+				DEVELOPMENT_TEAM = Z7GAZ56RUK;
+				INFOPLIST_FILE = "PhotosWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.DLS.Photorama.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -576,6 +871,24 @@
 			buildConfigurations = (
 				A103D4571E8D46D2007A6510 /* Debug */,
 				A103D4581E8D46D2007A6510 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1C9B2901E9545DF00314B22 /* Build configuration list for PBXNativeTarget "PhotosWatch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1C9B28E1E9545DF00314B22 /* Debug */,
+				A1C9B28F1E9545DF00314B22 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1C9B2921E9545DF00314B22 /* Build configuration list for PBXNativeTarget "PhotosWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1C9B28C1E9545DF00314B22 /* Debug */,
+				A1C9B28D1E9545DF00314B22 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
